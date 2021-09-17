@@ -15,4 +15,5 @@ type Repository interface {
 	// FindByArtistName(artistName string) (*models.Artist, error)
 	Insert(artist *models.Artist, tx *gorm.DB) error
 	Update(artist *models.Artist, tx *gorm.DB) error
+	Count(config request_util.PaginationConfig) (int64, error)
 }

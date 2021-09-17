@@ -11,9 +11,9 @@ import (
 )
 
 type Usecase interface {
-	Index(config request_util.PaginationConfig, c *gin.Context) ([]models.Artist, response_util.PaginationMeta, error)
+	Index(paginationConfig request_util.PaginationConfig, c *gin.Context) ([]models.Artist, response_util.PaginationMeta, error)
 	Show(artistID uint64) (*models.Artist, error)
-	Create(request request.ArtistRequest) (*models.Artist, error)
-	Update(request request.ArtistRequest, artistID uint64) (*models.Artist, error)
+	Create(request request.ArtistCreateRequest) (*models.Artist, error)
+	Update(request request.ArtistUpdateRequest, artistID uint64) (*models.Artist, error)
 	Delete(artistID uint64) error
 }
