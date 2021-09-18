@@ -9,7 +9,7 @@ type ArtistCreateRequest struct {
 	ArtistName  string     `json:"artist_name" form:"artist_name" binding:"required"`
 	AlbumName   string     `json:"album_name" form:"album_name" binding:"required"`
 	ImageUrl    string     `json:"image_url" form:"image_url" binding:"required"`
-	ReleaseDate *time.Time `json:"release_date" form:"release_date" binding:"required"`
+	ReleaseDate *time.Time `json:"release_date" form:"release_date" binding:"required" time_format:"2006-01-02"`
 	Price       float64    `json:"price" form:"price" binding:"required"`
 	SampleUrl   string     `json:"sample_url" form:"sample_url" binding:"required"`
 }
@@ -18,7 +18,7 @@ type ArtistUpdateRequest struct {
 	ArtistName  *string    `json:"artist_name" form:"artist_name"`
 	AlbumName   *string    `json:"album_name" form:"album_name"`
 	ImageUrl    *string    `json:"image_url" form:"image_url"`
-	ReleaseDate *time.Time `json:"release_date" form:"release_date"`
+	ReleaseDate *time.Time `json:"release_date" form:"release_date" time_format:"2006-01-02"`
 	Price       *float64   `json:"price" form:"price"`
 	SampleUrl   *string    `json:"sample_url" form:"sample_url"`
 }

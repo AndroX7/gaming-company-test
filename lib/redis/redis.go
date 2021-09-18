@@ -52,6 +52,7 @@ func NewClient(credentials Credentials, appEnv string) Client {
 	status := client.Ping()
 	if status.Err() != nil {
 		if appEnv != "development" {
+			log.Println("panic here")
 			log.Panic(status.Err())
 		} else {
 			log.Println("warning: redis not connected")

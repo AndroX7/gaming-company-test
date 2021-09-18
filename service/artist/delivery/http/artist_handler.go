@@ -18,7 +18,7 @@ func New(artistUC artist.Usecase) *Handler {
 }
 
 func (h *Handler) Register(r *gin.Engine, m *middleware.Middleware) {
-	artistRoute := r.Group("/artist", m.BasicHandle())
+	artistRoute := r.Group("/artist")
 	{
 		artistRoute.GET("", h.Index)
 		artistRoute.GET("/:id", h.Show)

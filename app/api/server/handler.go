@@ -14,7 +14,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 type Handler interface {
@@ -23,6 +22,7 @@ type Handler interface {
 
 func BuildHandler(middleware *middleware.Middleware, handlers ...Handler) http.Handler {
 	if os.Getenv("APP_ENV") == "production" {
+		log.Println("on production=================================")
 		gin.SetMode(gin.ReleaseMode)
 	}
 	router := gin.Default()
@@ -81,8 +81,8 @@ func BuildHandler(middleware *middleware.Middleware, handlers ...Handler) http.H
 	// set max upload file size
 	//router.MaxMultipartMemory = 8 << 20  // 8 MiB
 
-	router.GET("/metrics", gin.WrapH(promhttp.Handler()))
-	router.GET("/healthz", healthz)
+	// router.GET("/metrics", gin.WrapH(promhttp.Handler()))
+	// router.GET("/healthz", healthz)
 	//router.GET("/handling-midtrans", test)
 	//router.GET("/test",test)
 

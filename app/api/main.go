@@ -63,8 +63,8 @@ type appListeners struct {
 type handlers struct {
 	fx.In
 
-	artistHandler *artistHTTP.Handler
-	socketHandler *socketHTTP.Handler
+	ArtistHandler *artistHTTP.Handler
+	SocketHandler *socketHTTP.Handler
 }
 
 func main() {
@@ -130,8 +130,8 @@ func startServer(lc fx.Lifecycle, handlers handlers) {
 	)
 
 	h := server.BuildHandler(m,
-		handlers.artistHandler,
-		handlers.socketHandler,
+		handlers.ArtistHandler,
+		handlers.SocketHandler,
 	)
 
 	s := &http.Server{
