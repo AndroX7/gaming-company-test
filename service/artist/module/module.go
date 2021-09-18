@@ -10,8 +10,8 @@ import (
 
 var Module = fx.Options(
 	fx.Provide(
-		artistRepository.New,
-		artistUsecase.New,
 		artistHTTP.New,
+		artistUsecase.New,
+		artistRepository.New,
 	),
 )
