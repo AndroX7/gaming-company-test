@@ -7,7 +7,7 @@ dev:
 	go build -o bin/gaming-company-test app/api/main.go
 	./bin/gaming-company-test
 
-db-create:
+createdb:
 	npx sequelize-cli db:create
 
 migrate:

@@ -12,9 +12,9 @@ func (r *Repository) FindByID(artistID uint64) (*models.Artist, error) {
 	model := models.Artist{}
 	err := r.db.
 		Where("id = ?", artistID).
-		Find(&model).Error
+		First(&model).Error
 
-	if err == gorm.ErrRecordNotFound {
+	if err == gorm.ErrRecordNotFound || &model == nil {
 		return nil, errors.ErrNotFound
 	}
 
